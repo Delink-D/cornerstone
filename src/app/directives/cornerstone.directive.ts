@@ -76,10 +76,10 @@ export class CornerstoneDirective implements OnInit {
   displayImage(image) {
     cornerstone.displayImage(this.element, image);
 
-    cornerstoneTools.mouseInput.enable(this.element);
-    cornerstoneTools.mouseWheelInput.enable(this.element);
+    // cornerstoneTools.mouseInput.enable(this.element);
+    // cornerstoneTools.mouseWheelInput.enable(this.element);
 
-    cornerstoneTools.pan.activate(this.element, 2);
-    cornerstoneTools.zoom.activate(this.element, 4);
+    // cornerstoneTools.pan.activate(this.element, 2);
+    // cornerstoneTools.zoom.activate(this.element, 4);
   }
 }
