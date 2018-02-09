@@ -1,7 +1,12 @@
 import { Directive, ElementRef, HostListener,  Input, OnInit } from '@angular/core';
-import { cornerstoneTools } from 'cornerstone-tools';
 
-declare const cornerstone;
+import Hammer from 'hammerjs';
+import * as dicomParser from 'dicom-parser';
+import * as cornerstone from 'cornerstone-core/dist/cornerstone.js';
+import * as cornerstoneTools from 'cornerstone-tools/dist/cornerstoneTools.js';
+
+cornerstoneTools.external.Hammer = Hammer;
+cornerstoneTools.external.cornerstone = cornerstone;
 
 @Directive({
   selector: '[cornerstone]',
