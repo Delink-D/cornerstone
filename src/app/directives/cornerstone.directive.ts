@@ -78,10 +78,19 @@ export class CornerstoneDirective implements OnInit {
   displayImage(image) {
     cornerstone.displayImage(this.element, image);
 
-    // cornerstoneTools.mouseInput.enable(this.element);
-    // cornerstoneTools.mouseWheelInput.enable(this.element);
+    // enable inputs
+    cornerstoneTools.mouseInput.enable(this.element);
+    cornerstoneTools.mouseWheelInput.enable(this.element);    
 
-    // cornerstoneTools.pan.activate(this.element, 2);
-    // cornerstoneTools.zoom.activate(this.element, 4);
+    // mouse
+    // cornerstoneTools.wwwc.activate(this.element, 2) // left click
+    cornerstoneTools.pan.activate(this.element, 2) // middle click
+    cornerstoneTools.zoom.activate(this.element, 1) // right click
+    // cornerstoneTools.zoomWheel.activate(this.element); // middle mouse wheel
+
+    // touch / gesture
+    cornerstoneTools.wwwcTouchDrag.activate(this.element) // - Drag
+    cornerstoneTools.zoomTouchPinch.activate(this.element) // - Pinch
+    cornerstoneTools.panMultiTouch.activate(this.element) // - Multi (x2)
   }
 }
