@@ -22,11 +22,12 @@
         "styles.css"
       ],
       "scripts": [
-        "../node_modules/jquery/dist/jquery.js",
         "../node_modules/cornerstone-core/dist/cornerstone.js",
         "../node_modules/cornerstone-math/dist/cornerstoneMath.js",
         "../node_modules/cornerstone-tools/dist/cornerstoneTools.js",
-        "../lib/cornerstoneWADOImageLoader.js"
+        "../node_modules/cornerstone-wado-image-loader/dist/cornerstoneWADOImageLoader.js",
+        "../node_modules/cornerstone-web-image-loader/dist/cornerstoneWebImageLoader.js",
+        "../node_modules/dicom-parser/dist/dicomParser.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
