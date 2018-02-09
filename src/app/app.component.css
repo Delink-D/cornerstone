@@ -1,0 +1,21 @@
+#dicomWrapper {
+  width: 90%;
+  height: 80vh;
+  position: relative;
+  color: #000;
+  display: inline-block;
+  border: 2px solid #1E9DCB;
+}
+
+#dicomImage {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  top: 0px;
+  left: 0px;
+}
+.headers {
+  font-weight: bold;
+  position: absolute ;
+  color: #91B9CD!important;
+}
