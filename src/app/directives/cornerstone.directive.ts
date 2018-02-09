@@ -25,8 +25,6 @@ export class CornerstoneDirective implements OnInit {
     // console.log('setting image data:', imageData);
 
     if (imageData) {
-      console.log(imageData);
-
       if (!this.imageList.filter(img => img.imageId === imageData.imageId).length) {
         this.imageList.push(imageData);
       }
@@ -60,7 +58,6 @@ export class CornerstoneDirective implements OnInit {
     event.preventDefault();
 
     const delta = Math.max(-1, Math.min(1, (event.wheelDelta || -event.detail)));
-    // console.log(event);
 
     if(delta > 0){
       this.currentIndex ++;
