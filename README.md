@@ -1,6 +1,22 @@
 # Cornerstone
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.4.
+Cornerstone is a project developed with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.4.
+It enables you to view DICOM images on the browser with help of [cornerstone](https://github.com/cornerstonejs/cornerstone)
+
+## Features
+
+By use of `cornerstoneTools` this library provides a set of common tools needed in medical imaging to work with images and stacks of images.
+
+### Implemented Features
+
+* Zoom
+* Pan
+* Scroll
+
+## Install
+
+Clone this repo into your local repo `git clone https://github.com/Delink-D/cornerstone.git`
+Change dir `cd cornerstone`
 
 ## Development server
 
