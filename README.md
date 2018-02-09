@@ -9,9 +9,9 @@ By use of `cornerstoneTools` this library provides a set of common tools needed 
 
 ### Implemented Features
 
-..* Zoom
-..* Pan
-..* Scroll
+* Zoom
+* Pan
+* Scroll
 
 ## Install
 
