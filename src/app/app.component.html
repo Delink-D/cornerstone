@@ -1,14 +1,22 @@
-<div id="dicomWrapper"
-     class='disable-selection noIbar'
-     unselectable='on'
-     onselectstart='return false;'
-     onmousedown='return false;'>
+<div class="fullscreen">
+  <div id="dicomWrapper"
+    class='disable-selection noIbar'
+    unselectable='on'
+    onselectstart='return false;'
+    onmousedown='return false;'>
+    <div cornerstone
+         [image]="imageData"
+         id="dicomImage"
+         style="">
 
-  <div cornerstone
-       [image]="imageData"
-       id="dicomImage"
-       style="">
+      <div *ngIf='imageData'>
+        <p class="headers" style="top: 0; left: 10px;">Patient Name</p>
+        <p class="headers" style="top: 0; right: 10px;">Hospital {{imageData.patientID}}</p>
+
+        <p class="headers" style="bottom: 0; left: 10px;">WW/WC: {{imageData.windowWidth}} / {{imageData.windowCenter}}</p>
+        <p class="headers" style="bottom: 0; right: 10px;">Zoom: Image {{curentImage}} / {{allImages}}</p>
+      </div>
+    </div>
+
   </div>
 </div>
-
-<router-outlet></router-outlet>
