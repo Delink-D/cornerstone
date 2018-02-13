@@ -17,6 +17,7 @@ export class CornerstoneDirective implements OnInit {
   element:  any;
 
   imageList = [];
+  imageListId = [];
 
   currentIndex = 0;
 
@@ -27,6 +28,7 @@ export class CornerstoneDirective implements OnInit {
     if (imageData) {
       if (!this.imageList.filter(img => img.imageId === imageData.imageId).length) {
         this.imageList.push(imageData);
+        this.imageListId.push(imageData.imageId);
       }
 
       if (imageData.imageId) {
@@ -78,9 +80,9 @@ export class CornerstoneDirective implements OnInit {
   displayImage(image) {
     var stack = {
       currentImageIdIndex : 0,
-      imageIds: this.imageList
+      imageIds: this.imageListId
     };
-    
+
     cornerstone.displayImage(this.element, image);
 
     // enable inputs
