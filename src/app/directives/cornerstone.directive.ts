@@ -80,7 +80,8 @@ export class CornerstoneDirective implements OnInit {
 
     // enable inputs
     cornerstoneTools.mouseInput.enable(this.element);
-    cornerstoneTools.mouseWheelInput.enable(this.element);    
+    cornerstoneTools.mouseWheelInput.enable(this.element);
+    cornerstoneTools.touchInput.enable(this.element);
 
     // mouse
     // cornerstoneTools.wwwc.activate(this.element, 2) // left click
@@ -89,7 +90,7 @@ export class CornerstoneDirective implements OnInit {
     // cornerstoneTools.zoomWheel.activate(this.element); // middle mouse wheel
 
     // touch / gesture
-    cornerstoneTools.wwwcTouchDrag.activate(this.element) // - Drag
+    // cornerstoneTools.wwwcTouchDrag.activate(this.element) // - Drag
     cornerstoneTools.zoomTouchPinch.activate(this.element) // - Pinch
     cornerstoneTools.panMultiTouch.activate(this.element) // - Multi (x2)
   }
