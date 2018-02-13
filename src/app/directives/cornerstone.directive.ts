@@ -93,5 +93,6 @@ export class CornerstoneDirective implements OnInit {
     // cornerstoneTools.wwwcTouchDrag.activate(this.element) // - Drag
     cornerstoneTools.zoomTouchPinch.activate(this.element) // - Pinch
     cornerstoneTools.panMultiTouch.activate(this.element) // - Multi (x2)
+    cornerstoneTools.stackScrollTouchDrag.activate(this.element) // - Multi (x2) Drag
   }
 }
