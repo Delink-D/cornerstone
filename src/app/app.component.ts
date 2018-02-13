@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
   	for (const i of ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18']) {
-      this.csS.fetchDicomImage(`http://localhost:4200/assets/dicom/CT0000${i}.dcm`)
+      this.csS.fetchDicomImage(`https://corner-1.herokuapp.com/assets/dicom/CT0000${i}.dcm`)
       .subscribe(res => this.imageData = res);
     }
   }

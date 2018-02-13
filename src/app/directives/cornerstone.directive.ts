@@ -72,7 +72,7 @@ export class CornerstoneDirective implements OnInit {
     }
 
     this.image = this.imageList
-    .filter( img => img.imageId === `wadouri:http://localhost:4200/assets/dicom/CT00000${this.currentIndex}.dcm`)[0];
+    .filter( img => img.imageId === `wadouri:https://corner-1.herokuapp.com/assets/dicom/CT00000${this.currentIndex}.dcm`)[0];
   }
 
   displayImage(image) {
