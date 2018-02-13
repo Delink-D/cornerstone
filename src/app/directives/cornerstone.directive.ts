@@ -76,12 +76,21 @@ export class CornerstoneDirective implements OnInit {
   }
 
   displayImage(image) {
+    var stack = {
+      currentImageIdIndex : 0,
+      imageIds: this.imageList
+    };
+    
     cornerstone.displayImage(this.element, image);
 
     // enable inputs
     cornerstoneTools.mouseInput.enable(this.element);
     cornerstoneTools.mouseWheelInput.enable(this.element);
     cornerstoneTools.touchInput.enable(this.element);
+
+    // Set the stack as tool state
+    cornerstoneTools.addStackStateManager(this.element, ['stack']);
+    cornerstoneTools.addToolState(this.element, 'stack', stack);
 
     // mouse
     // cornerstoneTools.wwwc.activate(this.element, 2) // left click
