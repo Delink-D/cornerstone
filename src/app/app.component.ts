@@ -16,5 +16,12 @@ export class AppComponent implements OnInit {
       this.csS.fetchDicomImage(`https://corner-1.herokuapp.com/assets/dicom/CT0000${i}.dcm`)
       .subscribe(res => this.imageData = res);
     }
+
+   this.getImageData(this.imageStore);
+  getImageData (imageArray: Array<string>) {
+    imageArray.forEach(image => {
+      this.csS.fetchDicomImage(`${this.imagePath}${image}`)
+      .subscribe(res => this.imageData = res);
+    })
   }
 }
