@@ -1,4 +1,5 @@
 import {  AfterViewInit, Component, OnInit } from '@angular/core';
+import {  AfterViewInit, Component, OnInit, Input } from '@angular/core';
 import { CornerstoneService } from './services/cornerstone.service';
 
 @Component({
@@ -7,6 +8,7 @@ import { CornerstoneService } from './services/cornerstone.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  @Input() imageStore: Array<string>;
   imageData: any;
 
   constructor(public csS: CornerstoneService) { }
