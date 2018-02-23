@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener,  Input, OnInit } from '@angular/core';
+import { Directive, ElementRef, HostListener, EventEmitter, OnInit, Input, Output } from '@angular/core';
 
 import Hammer from 'hammerjs';
 import * as dicomParser from 'dicom-parser';
@@ -18,8 +18,10 @@ export class CornerstoneDirective implements OnInit {
 
   imageList = [];
   imageListId = [];
+  headers: Array<string> = [];
 
   currentIndex = 0;
+  @Output() headersUpdated: EventEmitter<Array<String>> = new EventEmitter();
 
   @Input('image')
   set image(imageData: any) {
@@ -105,5 +107,26 @@ export class CornerstoneDirective implements OnInit {
     cornerstoneTools.zoomTouchPinch.activate(this.element) // - Pinch
     cornerstoneTools.panMultiTouch.activate(this.element) // - Multi (x2)
     cornerstoneTools.stackScrollTouchDrag.activate(this.element) // - Multi (x2) Drag
+  getImageHeaders (image) {
+    try {
+      /** Parse the byte array to get a DataSet object that has the parsed contents */
+      var dataSet = dicomParser.parseDicom(image.data.byteArray/*, options */);
+
+      /** access a string element */
+      this.headers['allImages'] = this.imageList.length;
+      this.headers['currentImage'] = this.currentIndex;
+      this.headers['patientName'] = dataSet.string('x00100010');
+      this.headers['patientAge'] = dataSet.string('x00101010');
+      this.headers['studyDate'] = dataSet.string('x00080020');
+      this.headers['studyInstanceUid'] = dataSet.string('x0020000d');
+      this.headers['bodyPartExamined'] = dataSet.string('x00180015');
+      this.headers['institution​Name'] = dataSet.string('x00080080');
+      this.headers['physicianName'] = dataSet.string('x00080090');
+
+      this.headersUpdated.emit(this.headers);
+
+    } catch (ex) {
+      console.log('Error parsing byte stream', ex);
+    }
   }
 }
