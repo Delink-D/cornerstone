@@ -17,12 +17,12 @@ cornerstoneTools.external.cornerstoneMath = cornerstoneMath;
 export class CornerstoneDirective implements OnInit {
 
   element:  any;
+  currentIndex = 0;
 
   imageList = [];
   imageListId = [];
   headers: Array<string> = [];
 
-  currentIndex = 0;
   @Output() headersUpdated: EventEmitter<Array<String>> = new EventEmitter();
 
   @Input('image')
@@ -36,7 +36,7 @@ export class CornerstoneDirective implements OnInit {
       }
 
       if (imageData.imageId) {
-        this.displayImage(imageData);
+        this.displayImage(imageData, this.element);
       }
       // console.log(this.imageList);
     }
@@ -47,11 +47,11 @@ export class CornerstoneDirective implements OnInit {
   }
 
   ngOnInit () {
-  // Retrieve the DOM element itself
-  this.element = this.elementRef.nativeElement;
+    // Retrieve the DOM element itself
+    this.element = this.elementRef.nativeElement;
 
-  // Enable the element with Cornerstone
-  cornerstone.enable(this.element);
+    // Enable the element with Cornerstone
+    cornerstone.enable(this.element);
   }
 
   @HostListener('window:resize', ['$event'])
@@ -77,38 +77,41 @@ export class CornerstoneDirective implements OnInit {
       }
     }
 
-    this.image = this.imageList
-    .filter( img => img.imageId === `wadouri:https://corner-1.herokuapp.com/assets/dicom/CT00000${this.currentIndex}.dcm`)[0];
+    /** set the image to the current scroll index */
+    this.headers['currentImage'] = this.currentIndex;
+    this.image = this.imageList[this.currentIndex];
   }
 
-  displayImage(image) {
+  displayImage(image, element) {
     var stack = {
       currentImageIdIndex : 0,
       imageIds: this.imageListId
     };
 
-    cornerstone.displayImage(this.element, image);
+    /** get metadata using DicomParser */
+    this.getImageHeaders(image);
+
+    cornerstone.displayImage(element, image);
 
     // enable inputs
-    cornerstoneTools.mouseInput.enable(this.element);
-    cornerstoneTools.mouseWheelInput.enable(this.element);
-    cornerstoneTools.touchInput.enable(this.element);
+    cornerstoneTools.mouseInput.enable(element);
+    cornerstoneTools.mouseWheelInput.enable(element);
+    cornerstoneTools.touchInput.enable(element);    
 
     // Set the stack as tool state
-    cornerstoneTools.addStackStateManager(this.element, ['stack']);
-    cornerstoneTools.addToolState(this.element, 'stack', stack);
+    cornerstoneTools.addStackStateManager(element, ['stack']);
+    cornerstoneTools.addToolState(element, 'stack', stack);
 
     // mouse
-    // cornerstoneTools.wwwc.activate(this.element, 2) // left click
-    cornerstoneTools.pan.activate(this.element, 2) // middle click
-    cornerstoneTools.zoom.activate(this.element, 1) // right click
-    // cornerstoneTools.zoomWheel.activate(this.element); // middle mouse wheel
+    cornerstoneTools.pan.activate(element, 2) // middle click
+    cornerstoneTools.zoom.activate(element, 1) // right click
 
     // touch / gesture
-    // cornerstoneTools.wwwcTouchDrag.activate(this.element) // - Drag
-    cornerstoneTools.zoomTouchPinch.activate(this.element) // - Pinch
-    cornerstoneTools.panMultiTouch.activate(this.element) // - Multi (x2)
-    cornerstoneTools.stackScrollTouchDrag.activate(this.element) // - Multi (x2) Drag
+    cornerstoneTools.zoomTouchPinch.activate(element) // - Pinch
+    cornerstoneTools.panMultiTouch.activate(element) // - Multi (x2)
+    cornerstoneTools.stackScrollTouchDrag.activate(element) // - Multi (x2) Drag
+  }
+
   getImageHeaders (image) {
     try {
       /** Parse the byte array to get a DataSet object that has the parsed contents */
