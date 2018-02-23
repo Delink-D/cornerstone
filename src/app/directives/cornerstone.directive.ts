@@ -3,10 +3,12 @@ import { Directive, ElementRef, HostListener, EventEmitter, OnInit, Input, Outpu
 import Hammer from 'hammerjs';
 import * as dicomParser from 'dicom-parser';
 import * as cornerstone from 'cornerstone-core/dist/cornerstone.js';
+import * as cornerstoneMath from 'cornerstone-math/dist/cornerstoneMath.js';
 import * as cornerstoneTools from 'cornerstone-tools/dist/cornerstoneTools.js';
 
 cornerstoneTools.external.Hammer = Hammer;
 cornerstoneTools.external.cornerstone = cornerstone;
+cornerstoneTools.external.cornerstoneMath = cornerstoneMath;
 
 @Directive({
   selector: '[cornerstone]',
