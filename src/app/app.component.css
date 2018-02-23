@@ -1,20 +1,22 @@
 #dicomWrapper {
-  width: 90%;
+  width: 100%;
   height: 80vh;
   position: relative;
-  color: #000;
   display: inline-block;
+  background: #000;
   border: 2px solid #1E9DCB;
 }
-
 #dicomImage {
+  display: flex;
   position: absolute;
-  bottom: 0px;
-  right: 0px;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 .headers {
+  padding: 0;
+  margin: 5px;
   font-weight: bold;
   position: absolute ;
   color: #91B9CD!important;
