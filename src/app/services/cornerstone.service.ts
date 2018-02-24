@@ -10,18 +10,18 @@ import * as cornerstoneWebImageLoader from 'cornerstone-web-image-loader/dist/co
 import * as cornerstoneWADOImageLoaderWebWorker from 'cornerstone-wado-image-loader/dist/cornerstoneWADOImageLoaderWebWorker.js';
 import * as cornerstoneWADOImageLoaderCodecs from 'cornerstone-wado-image-loader/dist/cornerstoneWADOImageLoaderCodecs.js';
 
-cornerstoneWADOImageLoader.external.cornerstone = cornerstone;
 
 @Injectable()
 
 export class CornerstoneService {
 
   constructor() {
+    cornerstoneWADOImageLoader.external.cornerstone = cornerstone;
     cornerstoneWADOImageLoader.webWorkerManager.initialize({
       webWorkerPath : '/assets/cornerstone/webworkers/cornerstoneWADOImageLoaderWebWorker.js',
       taskConfiguration: {
         'decodeTask' : {
-          codecsPath: '/assets/cornerstone/codecs/cornerstoneWADOImageLoaderCodecs.js'
+          codecsPath: 'cornerstoneWADOImageLoaderCodecs.js'
         }
       }
     });
