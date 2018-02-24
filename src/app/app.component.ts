@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   @Input() imageStore: Array<string>;
 
   imageData: any;
-  imagePath: string = window.location.host + '/assets/dicom/';
+  imagePath: string = window.location.origin + '/assets/dicom/';
   imageHeaders: Array<string>;
 
   constructor(public csS: CornerstoneService) { }
