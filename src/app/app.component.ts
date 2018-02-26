@@ -29,6 +29,10 @@ export class AppComponent implements OnInit {
    this.getImageData(this.imageStore);
   }
 
+  updateHeaders(headerData: Array<string>){
+    this.imageHeaders = headerData;
+  }
+
   getImageData (imageArray: Array<string>) {
     imageArray.forEach(image => {
       this.csS.fetchDicomImage(`${this.imagePath}${image}`)
