@@ -88,6 +88,8 @@ export class CornerstoneDirective implements OnInit {
       imageIds: this.imageListId
     };
 
+    this.headers['currentImage'] = stack.currentImageIdIndex;
+
     /** get metadata using DicomParser */
     this.getImageHeaders(image);
 
@@ -95,8 +97,8 @@ export class CornerstoneDirective implements OnInit {
 
     // enable inputs
     cornerstoneTools.mouseInput.enable(element);
-    cornerstoneTools.mouseWheelInput.enable(element);
-    cornerstoneTools.touchInput.enable(element);    
+    // cornerstoneTools.mouseWheelInput.enable(element);
+    // cornerstoneTools.touchInput.enable(element);    
 
     // Set the stack as tool state
     cornerstoneTools.addStackStateManager(element, ['stack']);
