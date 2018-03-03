@@ -9,6 +9,7 @@ By use of `cornerstoneTools` this library provides a set of common tools needed 
 
 ### Implemented Features
 
+Both on pc and on touch screens
 * Zoom
 * Pan
 * Scroll
