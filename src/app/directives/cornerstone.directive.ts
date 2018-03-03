@@ -1,6 +1,6 @@
 import { Directive, ElementRef, HostListener, EventEmitter, OnInit, Input, Output } from '@angular/core';
 
-import Hammer from 'hammerjs';
+import * as Hammer from 'hammerjs';
 import * as dicomParser from 'dicom-parser';
 import * as cornerstone from 'cornerstone-core/dist/cornerstone.js';
 import * as cornerstoneMath from 'cornerstone-math/dist/cornerstoneMath.js';
