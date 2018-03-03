@@ -1,4 +1,10 @@
+<mat-card id="toolbar-card">
+  <mat-toolbar class="text-center">
+    Dicom Viewer with Cornerstonejs
     <!-- <button mat-button><img src="assets/github.svg" style="width: 20px;"> GitHub</button> -->
+  </mat-toolbar>
+</mat-card>
+
 <div id="dicomWrapper"
   class='disable-selection noIbar'
   unselectable='on'
@@ -12,7 +18,7 @@
        
        style="object-fit: cover;">
 
-    <div *ngIf='imageData'>
+    <div *ngIf='imageData'> 
       <!-- top left -->
       <p class="headers" style="top: 0; left: 10px;">Patient Name: {{imageHeaders['patientName']}}</p>
       <p class="headers" style="top: 25px; left: 10px;">Study Date: {{imageHeaders['studyDate']}}</p>

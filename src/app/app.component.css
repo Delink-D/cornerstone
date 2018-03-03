@@ -1,18 +1,18 @@
 #dicomWrapper {
-  width: 100%;
+  width: 95%;
   height: 80vh;
-  position: relative;
-  display: inline-block;
+  margin: 0 auto;
   background: #000;
+  position: relative;
   border: 2px solid #1E9DCB;
 }
 #dicomImage {
-  display: flex;
-  position: absolute;
   top: 0;
   left: 0;
-  bottom: 0;
   right: 0;
+  bottom: 0;
+  display: flex;
+  position: absolute;
 }
 .headers {
   padding: 0;
@@ -20,4 +20,16 @@
   font-weight: bold;
   position: absolute ;
   color: #91B9CD!important;
+}
+
+#toolbar-card {
+  color: #fff;
+  margin-bottom: 10px;
+  background: #37474f;
+  padding: 0!important;
+}
+.text-center {
+  font-size: 2em;
+  text-align: center;
+  font-family: 'Anton', sans-serif;
 }
